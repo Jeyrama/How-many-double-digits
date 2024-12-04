@@ -52,3 +52,5 @@ const numberOfDuplicateDigits = (ndigit) => {
   const doubleDigitsCount = totalNumbers - noDoubleDigits;
   return doubleDigitsCount;
 };
+
+// or
