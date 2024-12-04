@@ -54,3 +54,14 @@ const numberOfDuplicateDigits = (ndigit) => {
 };
 
 // or
+
+const duplicateDigits = (ndigit) => {
+  if (ndigit < 2) return 0n;
+  const totalNumbers = 9n * 10n ** (BigInt(ndigit) - 1n);
+  let nonDoubleDigits = 9n,
+      lastDigitChoices = 9n;
+  for (let i = 1; i < ndigit; i++) {
+    nonDoubleDigits *= lastDigitChoices;
+  }
+  return totalNumbers - nonDoubleDigits;
+}
