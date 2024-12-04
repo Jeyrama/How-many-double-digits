@@ -30,3 +30,25 @@ Dont bother trying to generate the entire list.
 
 
 // Solution
+
+const numberOfDuplicateDigits = (ndigit) => {
+  const totalNumbers = BigInt(9) * BigInt(10) ** BigInt(ndigit - 1);
+  
+  const countNoDoubleDigits = (n) => {
+    if (n === 1) return BigInt(9);
+
+    let prev = BigInt(9); 
+    let current = BigInt(9) * BigInt(9);
+
+    for (let i = 2; i < n; i++) {
+      const next = current * BigInt(9); 
+      prev = current;
+      current = next;
+    }
+    return current;
+  };
+
+  const noDoubleDigits = countNoDoubleDigits(ndigit);
+  const doubleDigitsCount = totalNumbers - noDoubleDigits;
+  return doubleDigitsCount;
+};
